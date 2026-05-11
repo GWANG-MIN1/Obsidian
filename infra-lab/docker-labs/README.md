@@ -9,3 +9,5 @@ Docker 학습 실습 및 명령어 정리 저장소
 - `02-networking/` - 포트 노출, 외부 연결
 - `03-volumes/` - 볼륨, 호스트 볼륨, 볼륨 컨테이너
 - `04-network/` - 네트워크 드라이버 (bridge, host, none, container, macvlan), --net-alias
+- `05-logging/` - 로그 드라이버 (json-file, syslog, fluentd, awslogs)
+- `06-resource-limit/` - 메모리 제한 (--memory), CPU 제한 (--cpu-shares, --cpuset-cpus, --cpu-period, --cpu-quota, --cpus)
