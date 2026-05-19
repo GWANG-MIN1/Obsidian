@@ -95,3 +95,49 @@ docker images                                        # 이미지 목록
 exit                                               # 컨테이너 종료 후 나오기
 ctrl+p, q                                          # 컨테이너 유지하고 나오기
 ```
+
+## 이미지 빌드
+```
+docker build -t 이미지명:태그 .                        # 현재 디렉터리 Dockerfile로 빌드
+docker build -f /경로/Dockerfile -t 이미지명:태그 .    # Dockerfile 경로 직접 지정
+docker build --build-arg KEY=VALUE -t 이미지명:태그 .  # 빌드 인자 전달
+docker build --no-cache -t 이미지명:태그 .             # 캐시 무시
+```
+
+## 이미지 태그 & 관리
+```
+docker tag 원본이미지:태그 새이미지:태그               # 태그 추가
+docker rmi 이미지명:태그                               # 이미지 삭제
+docker image prune                                     # 댕글링 이미지 삭제
+docker image prune -a                                  # 미사용 이미지 전체 삭제
+docker history 이미지명:태그                           # 레이어 히스토리 확인
+docker history --no-trunc 이미지명:태그                # 명령어 전체 출력
+docker system df                                       # 이미지/컨테이너 용량 확인
+docker system df -v                                    # 이미지별 상세 용량
+docker images -f dangling=true                         # 댕글링 이미지 목록
+docker images --digests                                # Digest 포함 이미지 목록
+```
+
+## 이미지 저장 & 로드 (폐쇄망/백업)
+```
+docker save -o myimage.tar 이미지명:태그               # 이미지 → tar 저장
+docker save 이미지명:태그 | gzip > myimage.tar.gz      # gzip 압축 저장
+docker load -i myimage.tar                             # tar → 이미지 로드
+docker export 컨테이너명 -o container.tar              # 컨테이너 파일시스템 추출
+docker import container.tar 이미지명:태그              # tar → 단일레이어 이미지
+docker commit 컨테이너명 이미지명:태그                 # 컨테이너 현재 상태를 이미지로
+```
+
+## 이미지 배포 (레지스트리)
+```
+docker login                                           # Docker Hub 로그인
+docker logout                                          # 로그아웃
+docker push username/이미지명:태그                     # 이미지 푸시
+docker pull username/이미지명:태그                     # 이미지 풀
+docker search nginx                                    # Docker Hub 검색
+
+# 프라이빗 레지스트리
+docker run -d -p 5000:5000 -v registry-data:/var/lib/registry registry:2
+docker tag 이미지명:태그 localhost:5000/이미지명:태그
+docker push localhost:5000/이미지명:태그
+```
