@@ -141,3 +141,57 @@ docker run -d -p 5000:5000 -v registry-data:/var/lib/registry registry:2
 docker tag 이미지명:태그 localhost:5000/이미지명:태그
 docker push localhost:5000/이미지명:태그
 ```
+
+## Docker Compose
+```
+docker compose up -d                                 # 백그라운드 실행
+docker compose up -d --build                         # 이미지 재빌드 후 실행
+docker compose down                                  # 컨테이너+네트워크 제거
+docker compose down -v                               # 볼륨까지 제거
+docker compose ps                                    # 서비스 상태 확인
+docker compose logs -f 서비스명                       # 특정 서비스 로그 스트리밍
+docker compose exec 서비스명 bash                     # 실행 중 서비스 접속
+docker compose build                                 # 이미지만 빌드
+docker compose restart 서비스명                       # 특정 서비스 재시작
+docker compose config                                # 최종 병합 설정 검증
+docker compose up -d --scale web=3                   # 서비스 3개로 스케일
+docker compose -f compose.yaml -f compose.prod.yaml up -d  # 환경별 파일 병합
+```
+
+## 재시작 정책 & 상태 점검
+```
+docker run -d --restart unless-stopped 이미지명       # 수동 중지 제외 항상 재시작
+docker run -d --restart on-failure:5 이미지명         # 비정상 종료 시 최대 5회 재시작
+docker inspect --format='{{.State.Health.Status}}' 컨테이너명  # 헬스 상태 확인
+```
+
+## 컨테이너 보안
+```
+docker run --user 1000:1000 이미지명                  # 비-root 사용자로 실행
+docker run --cap-drop ALL --cap-add NET_BIND_SERVICE 이미지명  # capability 최소화
+docker run --security-opt no-new-privileges 이미지명  # 권한 상승 차단
+docker run --read-only --tmpfs /tmp 이미지명          # 읽기 전용 파일시스템
+docker pull nginx@sha256:다이제스트                   # digest 고정 (불변 보장)
+docker scout cves 이미지명:태그                       # 이미지 취약점 스캔 (Scout)
+trivy image 이미지명:태그                             # 이미지 취약점 스캔 (Trivy)
+docker build --secret id=mysecret,src=./secret.txt -t 이미지명 .  # 빌드 시크릿 주입
+```
+
+## 오케스트레이션 (Docker Swarm)
+```
+docker swarm init --advertise-addr <매니저IP>        # 스웜 매니저 초기화
+docker swarm join-token worker                       # 워커 조인 토큰 확인
+docker swarm join --token <토큰> <매니저IP>:2377      # 워커 노드 참여
+docker node ls                                       # 노드 목록
+
+docker service create --name web --replicas 3 -p 80:80 nginx  # 서비스 생성
+docker service ls                                    # 서비스 목록
+docker service ps web                                # 태스크 배치 상태
+docker service scale web=5                           # 5개로 확장
+docker service update --image nginx:1.27 web         # 롤링 업데이트
+docker service rm web                                # 서비스 제거
+
+docker stack deploy -c compose.yaml myapp            # 스택 배포
+docker stack services myapp                          # 스택 서비스 확인
+docker stack rm myapp                                # 스택 제거
+```
