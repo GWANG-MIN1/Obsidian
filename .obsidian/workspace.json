@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS Cloud Practitioner Essentials/Module 6.md",
+                "file": "AWS Cloud Practitioner Essentials/Module 6/01-Storage.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Module 6"
+              "title": "01-Storage"
             }
           }
         ]
@@ -180,11 +180,23 @@
       "daily-notes:오늘의 일일 노트 열기": false,
       "templates:템플릿 삽입": false,
       "command-palette:명령어 팔레트 열기": false,
-      "bases:새 베이스 생성하기": false
+      "bases:새 베이스 생성하기": false,
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "3b6335cd04ae5c67",
+  "active": "a6e42fe57413ebac",
   "lastOpenFiles": [
+    "AWS Cloud Practitioner Essentials/Module 6/08-Amazon Storage Gateway.md",
+    "AWS Cloud Practitioner Essentials/Module 6/07-Amazon FSx.md",
+    "AWS Cloud Practitioner Essentials/Module 6/06-File Storage.md",
+    "AWS Cloud Practitioner Essentials/Module 6/05-S3 Storage Class And S3 lifecycle.md",
+    "AWS Cloud Practitioner Essentials/Module 6/04-Amazon_Simple_Storage_Service(S3).md",
+    "AWS Cloud Practitioner Essentials/Module 6/03-EBS_volume_lifecycle.md",
+    "AWS Cloud Practitioner Essentials/Module 6/02-Block_Storage.md",
+    "AWS Cloud Practitioner Essentials/Module 6/01-Storage.md",
+    "infra-lab/linux-scripts/04-text-processing/README.md",
+    "AWS Cloud Practitioner Essentials/Module 6",
+    "AWS Cloud Practitioner Essentials/Module 6.md",
     "infra-lab/linux-scripts/commands.md",
     "infra-lab/linux-scripts/README.md",
     "infra-lab/linux-scripts/10-monitoring-performance/README.md",
@@ -199,28 +211,17 @@
     "infra-lab/linux-scripts/06-package-management",
     "infra-lab/linux-scripts/05-users-groups/README.md",
     "infra-lab/linux-scripts/05-users-groups",
-    "infra-lab/linux-scripts/04-text-processing/README.md",
     "infra-lab/linux-scripts/04-text-processing",
     "infra-lab/linux-scripts/03-process-management/README.md",
     "infra-lab/linux-scripts/03-process-management",
     "infra-lab/linux-scripts/02-file-permissions/README.md",
     "infra-lab/linux-scripts/02-file-permissions",
     "infra-lab/linux-scripts/01-basics/README.md",
-    "infra-lab/linux-scripts/01-basics",
     "infra-lab/k8s-manifests/README.md",
-    "AWS Cloud Practitioner Essentials/Module 6.md",
     "AWS Cloud Practitioner Essentials/Module 5/05-Global Architecture.md",
     "AWS Cloud Practitioner Essentials/Module 5/04-Global Networking.md",
     "AWS Cloud Practitioner Essentials/Module 5/03-VPC networking and security components.md",
     "AWS Cloud Practitioner Essentials/Module 5/02-Connection.md",
-    "AWS Cloud Practitioner Essentials/Module 5/01-Networking.md",
-    "infra-lab/k8s-manifests/10-helm-gitops/README.md",
-    "infra-lab/k8s-manifests/02-pod/README.md",
-    "AWS Cloud Practitioner Essentials/Module 4/04-Infra_and_Automation.md",
-    "infra-lab/README.md",
-    "infra-lab/k8s-manifests/08-namespace-rbac/README.md",
-    "infra-lab/k8s-manifests/09-scheduling/README.md",
-    "infra-lab/k8s-manifests/commands.md",
     "무제.canvas",
     "무제 1.canvas"
   ]
