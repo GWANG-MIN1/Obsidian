@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS Cloud Practitioner Essentials/Module 6/01-Storage.md",
+                "file": "AWS Cloud Practitioner Essentials/Module 7/01-DB.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "01-Storage"
+              "title": "01-DB"
             }
           }
         ]
@@ -180,12 +180,17 @@
       "daily-notes:오늘의 일일 노트 열기": false,
       "templates:템플릿 삽입": false,
       "command-palette:명령어 팔레트 열기": false,
-      "bases:새 베이스 생성하기": false,
-      "obsidian-git:Open Git source control": false
+      "bases:새 베이스 생성하기": false
     }
   },
-  "active": "a6e42fe57413ebac",
+  "active": "3b6335cd04ae5c67",
   "lastOpenFiles": [
+    "AWS Cloud Practitioner Essentials/Module 7/04 -Additional Database Services.md",
+    "AWS Cloud Practitioner Essentials/Module 7/03 -In-Memory Caching Service.md",
+    "AWS Cloud Practitioner Essentials/Module 7/02-DynamoDB.md",
+    "AWS Cloud Practitioner Essentials/Module 7/01-DB.md",
+    "AWS Cloud Practitioner Essentials/Module 6/01-Storage.md",
+    "AWS Cloud Practitioner Essentials/Module 7",
     "AWS Cloud Practitioner Essentials/Module 6/08-Amazon Storage Gateway.md",
     "AWS Cloud Practitioner Essentials/Module 6/07-Amazon FSx.md",
     "AWS Cloud Practitioner Essentials/Module 6/06-File Storage.md",
@@ -193,7 +198,6 @@
     "AWS Cloud Practitioner Essentials/Module 6/04-Amazon_Simple_Storage_Service(S3).md",
     "AWS Cloud Practitioner Essentials/Module 6/03-EBS_volume_lifecycle.md",
     "AWS Cloud Practitioner Essentials/Module 6/02-Block_Storage.md",
-    "AWS Cloud Practitioner Essentials/Module 6/01-Storage.md",
     "infra-lab/linux-scripts/04-text-processing/README.md",
     "AWS Cloud Practitioner Essentials/Module 6",
     "AWS Cloud Practitioner Essentials/Module 6.md",
@@ -215,13 +219,8 @@
     "infra-lab/linux-scripts/03-process-management/README.md",
     "infra-lab/linux-scripts/03-process-management",
     "infra-lab/linux-scripts/02-file-permissions/README.md",
-    "infra-lab/linux-scripts/02-file-permissions",
     "infra-lab/linux-scripts/01-basics/README.md",
     "infra-lab/k8s-manifests/README.md",
-    "AWS Cloud Practitioner Essentials/Module 5/05-Global Architecture.md",
-    "AWS Cloud Practitioner Essentials/Module 5/04-Global Networking.md",
-    "AWS Cloud Practitioner Essentials/Module 5/03-VPC networking and security components.md",
-    "AWS Cloud Practitioner Essentials/Module 5/02-Connection.md",
     "무제.canvas",
     "무제 1.canvas"
   ]
