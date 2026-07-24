@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AWS Cloud Practitioner Essentials/Module 7/01-DB.md",
+                "file": "AWS Cloud Practitioner Essentials/Module 8/03- AWS AI_ML Solution.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "01-DB"
+              "title": "03- AWS AI_ML Solution"
             }
           }
         ]
@@ -185,10 +185,19 @@
   },
   "active": "3b6335cd04ae5c67",
   "lastOpenFiles": [
+    "AWS Cloud Practitioner Essentials/Module 8/04- AWS-based Generative AI.md",
+    "AWS Cloud Practitioner Essentials/Module 8/06- Data Analysis.md",
+    "AWS Cloud Practitioner Essentials/Module 8/05- AWS Generative AI Solution.md",
+    "AWS Cloud Practitioner Essentials/Module 8/02- AWS-based AI_ML.md",
+    "AWS Cloud Practitioner Essentials/Module 8/03- AWS AI_ML Solution.md",
+    "AWS Cloud Practitioner Essentials/Module 8/08- Data Analysis.md",
+    "AWS Cloud Practitioner Essentials/Module 8/07- AWS Data Pipeline.md",
+    "AWS Cloud Practitioner Essentials/Module 8/01- ML and Data Analytics.md",
+    "AWS Cloud Practitioner Essentials/Module 7/01-DB.md",
     "AWS Cloud Practitioner Essentials/Module 7/04 -Additional Database Services.md",
     "AWS Cloud Practitioner Essentials/Module 7/03 -In-Memory Caching Service.md",
     "AWS Cloud Practitioner Essentials/Module 7/02-DynamoDB.md",
-    "AWS Cloud Practitioner Essentials/Module 7/01-DB.md",
+    "AWS Cloud Practitioner Essentials/Module 8",
     "AWS Cloud Practitioner Essentials/Module 6/01-Storage.md",
     "AWS Cloud Practitioner Essentials/Module 7",
     "AWS Cloud Practitioner Essentials/Module 6/08-Amazon Storage Gateway.md",
@@ -207,20 +216,11 @@
     "infra-lab/linux-scripts/10-monitoring-performance",
     "infra-lab/linux-scripts/09-shell-scripting/README.md",
     "infra-lab/linux-scripts/09-shell-scripting",
-    "infra-lab/linux-scripts/08-networking/README.md",
     "infra-lab/linux-scripts/08-networking",
-    "infra-lab/linux-scripts/07-systemd-service/README.md",
     "infra-lab/linux-scripts/07-systemd-service",
-    "infra-lab/linux-scripts/06-package-management/README.md",
     "infra-lab/linux-scripts/06-package-management",
-    "infra-lab/linux-scripts/05-users-groups/README.md",
     "infra-lab/linux-scripts/05-users-groups",
     "infra-lab/linux-scripts/04-text-processing",
-    "infra-lab/linux-scripts/03-process-management/README.md",
-    "infra-lab/linux-scripts/03-process-management",
-    "infra-lab/linux-scripts/02-file-permissions/README.md",
-    "infra-lab/linux-scripts/01-basics/README.md",
-    "infra-lab/k8s-manifests/README.md",
     "무제.canvas",
     "무제 1.canvas"
   ]
