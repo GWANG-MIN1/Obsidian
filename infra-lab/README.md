@@ -29,6 +29,7 @@ Linux (커널·프로세스·권한·네트워크)
 | [linux-scripts](linux-scripts/) | 01~10 | ✅ 완료 |
 | [docker-labs](docker-labs/) | 01~10 | ✅ 완료 |
 | [k8s-manifests](k8s-manifests/) | 01~10 | ✅ 완료 |
+| [terraform-lab](terraform-lab/) | 01~10 | ✅ 완료 |
 | [troubleshooting](troubleshooting/) | 상시 기록 | 🚧 진행 예정 |
 
 ---
@@ -86,6 +87,23 @@ Linux (커널·프로세스·권한·네트워크)
 
 📎 [commands.md](k8s-manifests/commands.md) — kubectl 명령어 레퍼런스
 
+### [terraform-lab](terraform-lab/) — 인프라를 코드로
+
+| # | 주제 | 키워드 |
+|---|---|---|
+| [01](terraform-lab/01-iac-basics/) | IaC 기초 | 선언형 vs 명령형, 도구 비교, init/plan/apply |
+| [02](terraform-lab/02-provider-resource/) | Provider & Resource | HCL 문법, 버전 제약, 자격증명, 참조·의존성 |
+| [03](terraform-lab/03-state/) | State | tfstate, S3 백엔드·잠금, state 명령, 드리프트 |
+| [04](terraform-lab/04-variables-outputs/) | 변수 & 출력 | variable·locals·output, validation, 주입 우선순위 |
+| [05](terraform-lab/05-module/) | 모듈 | 루트/자식 모듈, source, 레지스트리, 설계 원칙 |
+| [06](terraform-lab/06-meta-arguments/) | 메타 인수 & 표현식 | count vs for_each, lifecycle, dynamic, for·splat |
+| [07](terraform-lab/07-data-import/) | Data Source & 임포트 | data, import·moved·removed 블록 |
+| [08](terraform-lab/08-workspace-environment/) | 환경 분리 전략 | workspace vs 디렉터리 분리, backend-config, Terragrunt |
+| [09](terraform-lab/09-aws-vpc-eks/) | 실습: VPC + EKS | 부트스트랩, 모듈 조립, IRSA, kubeconfig |
+| [10](terraform-lab/10-cicd-policy/) | CI/CD & 정책 검사 | OIDC, plan-on-PR, tfsec·checkov, OPA, Atlantis |
+
+📎 [commands.md](terraform-lab/commands.md) — Terraform 명령어 레퍼런스
+
 ### [troubleshooting](troubleshooting/) — 실제로 막혔던 것들
 
 학습 노트와 별개로, **직접 겪은 장애·삽질을 기록**한다. 다음 형식을 따른다.
@@ -114,7 +132,6 @@ Linux (커널·프로세스·권한·네트워크)
 
 | 트랙 | 다룰 내용 |
 |---|---|
-| `terraform-lab/` | IaC 개념, state·backend, module, VPC/EKS 프로비저닝, tfsec |
 | `observability-lab/` | Prometheus·PromQL, Grafana, Alertmanager, Loki, OpenTelemetry |
 
 > 실제 적용 결과는 별도 저장소 [eks-gitops-platform](https://github.com/GWANG-MIN1/eks-gitops-platform)에서 EKS 위에 GitOps·관측성·DevSecOps로 이어진다.
