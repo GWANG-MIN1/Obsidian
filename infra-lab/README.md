@@ -30,6 +30,7 @@ Linux (커널·프로세스·권한·네트워크)
 | [docker-labs](docker-labs/) | 01~10 | ✅ 완료 |
 | [k8s-manifests](k8s-manifests/) | 01~10 | ✅ 완료 |
 | [terraform-lab](terraform-lab/) | 01~10 | ✅ 완료 |
+| [observability-lab](observability-lab/) | 01~08 | ✅ 완료 |
 | [troubleshooting](troubleshooting/) | 상시 기록 | 🚧 진행 예정 |
 
 ---
@@ -104,6 +105,21 @@ Linux (커널·프로세스·권한·네트워크)
 
 📎 [commands.md](terraform-lab/commands.md) — Terraform 명령어 레퍼런스
 
+### [observability-lab](observability-lab/) — 지금 잘 돌고 있는가
+
+| # | 주제 | 키워드 |
+|---|---|---|
+| [01](observability-lab/01-observability-basics/) | 관측성 기초 | 3요소, SLI/SLO/에러버짓, USE·RED, 백분위수 |
+| [02](observability-lab/02-prometheus-architecture/) | Prometheus 아키텍처 | Pull 모델, 카디널리티, 메트릭 타입, exporter, TSDB |
+| [03](observability-lab/03-promql/) | PromQL | rate·increase, 집계, histogram_quantile, 레코딩 룰 |
+| [04](observability-lab/04-grafana/) | Grafana | 데이터소스, 패널, 변수, 프로비저닝, 대시보드 설계 |
+| [05](observability-lab/05-alerting/) | 알림 | PrometheusRule, for·severity, 라우팅·억제, 알림 피로 |
+| [06](observability-lab/06-logging/) | 로깅 (Loki) | PLG, 라벨 카디널리티, LogQL, SingleBinary, EFK 비교 |
+| [07](observability-lab/07-tracing/) | 분산 추적 | Span·컨텍스트 전파, OpenTelemetry, 샘플링, exemplar |
+| [08](observability-lab/08-kube-prometheus-stack/) | 실전 스택 | Operator·ServiceMonitor, EKS 현실, 영속성, GitOps 배포 |
+
+📎 [commands.md](observability-lab/commands.md) — PromQL·LogQL·promtool 레퍼런스
+
 ### [troubleshooting](troubleshooting/) — 실제로 막혔던 것들
 
 학습 노트와 별개로, **직접 겪은 장애·삽질을 기록**한다. 다음 형식을 따른다.
@@ -132,6 +148,7 @@ Linux (커널·프로세스·권한·네트워크)
 
 | 트랙 | 다룰 내용 |
 |---|---|
-| `observability-lab/` | Prometheus·PromQL, Grafana, Alertmanager, Loki, OpenTelemetry |
+| `cicd-lab/` | GitHub Actions, 배포 전략(블루그린·카나리), ArgoCD 심화, Argo Rollouts |
+| `security-lab/` | Kyverno 정책, Trivy 이미지 스캔, kube-bench, External Secrets, 최소권한 RBAC |
 
 > 실제 적용 결과는 별도 저장소 [eks-gitops-platform](https://github.com/GWANG-MIN1/eks-gitops-platform)에서 EKS 위에 GitOps·관측성·DevSecOps로 이어진다.
