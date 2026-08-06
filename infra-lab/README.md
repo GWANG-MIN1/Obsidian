@@ -31,6 +31,7 @@ Linux (커널·프로세스·권한·네트워크)
 | [k8s-manifests](k8s-manifests/) | 01~10 | ✅ 완료 |
 | [terraform-lab](terraform-lab/) | 01~10 | ✅ 완료 |
 | [observability-lab](observability-lab/) | 01~08 | ✅ 완료 |
+| [cicd-lab](cicd-lab/) | 01~10 | ✅ 완료 |
 | [troubleshooting](troubleshooting/) | 상시 기록 | 🚧 진행 예정 |
 
 ---
@@ -120,6 +121,23 @@ Linux (커널·프로세스·권한·네트워크)
 
 📎 [commands.md](observability-lab/commands.md) — PromQL·LogQL·promtool 레퍼런스
 
+### [cicd-lab](cicd-lab/) — 어떻게 바꿀 것인가
+
+| # | 주제 | 키워드 |
+|---|---|---|
+| [01](cicd-lab/01-cicd-basics/) | CI/CD 기초 | 파이프라인 단계, 게이팅, Push vs Pull, DORA 4지표 |
+| [02](cicd-lab/02-github-actions-basics/) | GitHub Actions 기초 | workflow·job·step, 트리거, 컨텍스트, 아티팩트·캐시 |
+| [03](cicd-lab/03-github-actions-advanced/) | GitHub Actions 실전 | matrix, 재사용 워크플로, concurrency, OIDC, 2단 게이팅 |
+| [04](cicd-lab/04-container-image-pipeline/) | 이미지 파이프라인 | 멀티스테이지, buildx 캐시, 태그 전략, ECR, SBOM·서명 |
+| [05](cicd-lab/05-argocd-advanced/) | ArgoCD 심화 | 멀티소스, sync wave·hook, ServerSideApply, 드리프트 |
+| [06](cicd-lab/06-app-of-apps-applicationset/) | App of Apps·ApplicationSet | 계층 배포, 제너레이터, PR 미리보기, 폭발 반경 |
+| [07](cicd-lab/07-gitops-repo-strategy/) | GitOps 저장소 전략 | 레포 분리, 태그 갱신, 환경 승격, 시크릿 |
+| [08](cicd-lab/08-deployment-strategies/) | 배포 전략 | Rolling·Blue-Green·Canary, 우아한 종료, DB 호환성 |
+| [09](cicd-lab/09-argo-rollouts/) | Argo Rollouts | Rollout CRD, 트래픽 라우팅, AnalysisTemplate, 자동 롤백 |
+| [10](cicd-lab/10-pipeline-operations/) | 파이프라인 운영 | DORA 측정, 배포 알림, 롤백 절차, 자주 겪는 문제 |
+
+📎 [commands.md](cicd-lab/commands.md) — gh·argocd·argo rollouts·buildx 레퍼런스
+
 ### [troubleshooting](troubleshooting/) — 실제로 막혔던 것들
 
 학습 노트와 별개로, **직접 겪은 장애·삽질을 기록**한다. 다음 형식을 따른다.
@@ -148,7 +166,7 @@ Linux (커널·프로세스·권한·네트워크)
 
 | 트랙 | 다룰 내용 |
 |---|---|
-| `cicd-lab/` | GitHub Actions, 배포 전략(블루그린·카나리), ArgoCD 심화, Argo Rollouts |
 | `security-lab/` | Kyverno 정책, Trivy 이미지 스캔, kube-bench, External Secrets, 최소권한 RBAC |
+| `cost-lab/` | 태그 기반 비용 배분, Karpenter·SPOT, 리소스 라이트사이징, FinOps 지표 |
 
 > 실제 적용 결과는 별도 저장소 [eks-gitops-platform](https://github.com/GWANG-MIN1/eks-gitops-platform)에서 EKS 위에 GitOps·관측성·DevSecOps로 이어진다.
