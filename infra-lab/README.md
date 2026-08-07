@@ -32,6 +32,7 @@ Linux (커널·프로세스·권한·네트워크)
 | [terraform-lab](terraform-lab/) | 01~10 | ✅ 완료 |
 | [observability-lab](observability-lab/) | 01~08 | ✅ 완료 |
 | [cicd-lab](cicd-lab/) | 01~10 | ✅ 완료 |
+| [security-lab](security-lab/) | 01~10 | ✅ 완료 |
 | [troubleshooting](troubleshooting/) | 상시 기록 | 🚧 진행 예정 |
 
 ---
@@ -138,6 +139,23 @@ Linux (커널·프로세스·권한·네트워크)
 
 📎 [commands.md](cicd-lab/commands.md) — gh·argocd·argo rollouts·buildx 레퍼런스
 
+### [security-lab](security-lab/) — 뚫리지 않게, 뚫려도 알아채게
+
+| # | 주제 | 키워드 |
+|---|---|---|
+| [01](security-lab/01-security-basics/) | 보안 기초 | 4C 모델, shift-left+런타임, Audit→Enforce, 위협 모델 |
+| [02](security-lab/02-pod-container-security/) | 파드·컨테이너 보안 | securityContext, 비-root, capabilities, seccomp |
+| [03](security-lab/03-pod-security-standards/) | Pod Security Standards | baseline·restricted, PSA 라벨, PSP 폐기 이후 |
+| [04](security-lab/04-kyverno/) | Kyverno | admission 웹훅, validate/mutate/generate, 대조 실험 |
+| [05](security-lab/05-rbac-least-privilege/) | RBAC 최소권한 | Role·바인딩, 위험 권한, SA 토큰, IRSA |
+| [06](security-lab/06-secrets-management/) | 시크릿 관리 | Secret의 한계, ESO+IRSA+SSM, Sealed·SOPS, 로테이션 |
+| [07](security-lab/07-image-security/) | 이미지 보안 | Trivy 2단 게이팅, 베이스 선택, SBOM, verifyImages |
+| [08](security-lab/08-network-security/) | 네트워크 보안 | default-deny, DNS 함정, CNI 지원, IMDS 차단 |
+| [09](security-lab/09-cluster-hardening/) | 클러스터 하드닝 | kube-bench, EKS 조치 가능 범위, IMDSv2, 감사 로그 |
+| [10](security-lab/10-runtime-detection/) | 런타임 탐지·사고 대응 | Falco, 감사 로그 쿼리, 침해 지표, 격리 우선 대응 |
+
+📎 [commands.md](security-lab/commands.md) — kubectl auth·Kyverno·Trivy·cosign·ESO 레퍼런스
+
 ### [troubleshooting](troubleshooting/) — 실제로 막혔던 것들
 
 학습 노트와 별개로, **직접 겪은 장애·삽질을 기록**한다. 다음 형식을 따른다.
@@ -166,7 +184,7 @@ Linux (커널·프로세스·권한·네트워크)
 
 | 트랙 | 다룰 내용 |
 |---|---|
-| `security-lab/` | Kyverno 정책, Trivy 이미지 스캔, kube-bench, External Secrets, 최소권한 RBAC |
 | `cost-lab/` | 태그 기반 비용 배분, Karpenter·SPOT, 리소스 라이트사이징, FinOps 지표 |
+| `reliability-lab/` | SLO 운영, 백업·DR, 카오스 실험, 용량 계획, 온콜·포스트모템 |
 
 > 실제 적용 결과는 별도 저장소 [eks-gitops-platform](https://github.com/GWANG-MIN1/eks-gitops-platform)에서 EKS 위에 GitOps·관측성·DevSecOps로 이어진다.
