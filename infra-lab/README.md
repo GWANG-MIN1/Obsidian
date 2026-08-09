@@ -33,6 +33,7 @@ Linux (커널·프로세스·권한·네트워크)
 | [observability-lab](observability-lab/) | 01~08 | ✅ 완료 |
 | [cicd-lab](cicd-lab/) | 01~10 | ✅ 완료 |
 | [security-lab](security-lab/) | 01~10 | ✅ 완료 |
+| [cost-lab](cost-lab/) | 01~10 | ✅ 완료 |
 | [troubleshooting](troubleshooting/) | 상시 기록 | 🚧 진행 예정 |
 
 ---
@@ -156,6 +157,23 @@ Linux (커널·프로세스·권한·네트워크)
 
 📎 [commands.md](security-lab/commands.md) — kubectl auth·Kyverno·Trivy·cosign·ESO 레퍼런스
 
+### [cost-lab](cost-lab/) — 이게 얼마인가
+
+| # | 주제 | 키워드 |
+|---|---|---|
+| [01](cost-lab/01-finops-basics/) | FinOps 기초 | Inform→Optimize→Operate, 단위 경제성, 최적화 우선순위 |
+| [02](cost-lab/02-cost-visibility/) | 비용 가시성 | 태그 전략, 비용 할당 태그, Cost Explorer·CUR, 계정 분리 |
+| [03](cost-lab/03-kubernetes-cost-allocation/) | K8s 비용 배분 | requests 기준 배분, 유휴 비용, OpenCost, 쿼터 |
+| [04](cost-lab/04-compute-purchasing/) | 컴퓨트 구매 옵션 | Savings Plans·RI·Spot, EKS 가격 구조, Fargate·Graviton |
+| [05](cost-lab/05-spot-instances/) | Spot 인스턴스 | 중단 흐름, 다양화, PDB·토폴로지 분산, drain 검증 |
+| [06](cost-lab/06-karpenter/) | Karpenter | NodePool, consolidation, limits 필수, CA 비교 |
+| [07](cost-lab/07-rightsizing/) | 리소스 라이트사이징 | requests가 비용, QoS, VPA, max-pods 한계 |
+| [08](cost-lab/08-storage-network-cost/) | 스토리지·네트워크 | gp3, S3 수명주기, NAT·VPC 엔드포인트, 크로스 AZ |
+| [09](cost-lab/09-observability-cost/) | 관측성 비용 | 카디널리티, 보존 전략, 로그 드롭, 샘플링 |
+| [10](cost-lab/10-cost-operations/) | 비용 운영 | 예측 알림, 이상 탐지, 정리 루틴, Infracost |
+
+📎 [commands.md](cost-lab/commands.md) — aws ce·유휴 자원 탐색·OpenCost·PromQL 레퍼런스
+
 ### [troubleshooting](troubleshooting/) — 실제로 막혔던 것들
 
 학습 노트와 별개로, **직접 겪은 장애·삽질을 기록**한다. 다음 형식을 따른다.
@@ -184,7 +202,6 @@ Linux (커널·프로세스·권한·네트워크)
 
 | 트랙 | 다룰 내용 |
 |---|---|
-| `cost-lab/` | 태그 기반 비용 배분, Karpenter·SPOT, 리소스 라이트사이징, FinOps 지표 |
 | `reliability-lab/` | SLO 운영, 백업·DR, 카오스 실험, 용량 계획, 온콜·포스트모템 |
 
 > 실제 적용 결과는 별도 저장소 [eks-gitops-platform](https://github.com/GWANG-MIN1/eks-gitops-platform)에서 EKS 위에 GitOps·관측성·DevSecOps로 이어진다.
