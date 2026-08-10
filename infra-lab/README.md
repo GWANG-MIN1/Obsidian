@@ -34,6 +34,7 @@ Linux (커널·프로세스·권한·네트워크)
 | [cicd-lab](cicd-lab/) | 01~10 | ✅ 완료 |
 | [security-lab](security-lab/) | 01~10 | ✅ 완료 |
 | [cost-lab](cost-lab/) | 01~10 | ✅ 완료 |
+| [reliability-lab](reliability-lab/) | 01~10 | ✅ 완료 |
 | [troubleshooting](troubleshooting/) | 상시 기록 | 🚧 진행 예정 |
 
 ---
@@ -174,6 +175,23 @@ Linux (커널·프로세스·권한·네트워크)
 
 📎 [commands.md](cost-lab/commands.md) — aws ce·유휴 자원 탐색·OpenCost·PromQL 레퍼런스
 
+### [reliability-lab](reliability-lab/) — 고장 났을 때 어떻게 할 것인가
+
+| # | 주제 | 키워드 |
+|---|---|---|
+| [01](reliability-lab/01-reliability-basics/) | 신뢰성 기초 | MTBF vs MTTR, 안전 여유, 의존성의 곱셈, 복잡계 |
+| [02](reliability-lab/02-slo-operations/) | SLO 운영 | SLI 정의, 에러 버짓 정책, 다중 창 번레이트 알림 |
+| [03](reliability-lab/03-incident-response/) | 장애 대응 | 완화 우선, 심각도, IC 역할 분담, 커뮤니케이션 |
+| [04](reliability-lab/04-postmortem/) | 포스트모템 | 비난 없는 회고, 기여 요인, 예방·탐지·완화 액션 |
+| [05](reliability-lab/05-resilience-patterns/) | 복원력 패턴 | 타임아웃·백오프·지터, 서킷 브레이커, 우아한 성능 저하 |
+| [06](reliability-lab/06-kubernetes-resilience/) | K8s 복원력 | probe 정확도, PDB의 한계, 토폴로지 분산, 축출 순서 |
+| [07](reliability-lab/07-backup-dr/) | 백업과 DR | RPO·RTO, Velero, PITR, 복구 리허설, IaC의 DR 이점 |
+| [08](reliability-lab/08-capacity-planning/) | 용량 계획 | predict_linear, 오토스케일링 지연, 헤드룸, 하류 한계 |
+| [09](reliability-lab/09-chaos-engineering/) | 카오스 엔지니어링 | 가설 기반 실험, 폭발 반경, 도구 없이 시작, 게임데이 |
+| [10](reliability-lab/10-reliability-operations/) | 신뢰성 운영 | 온콜 로테이션, 런북, 변경 관리, 토일 축소 |
+
+📎 [commands.md](reliability-lab/commands.md) — SLO PromQL·장애 진단·Velero·부하 테스트 레퍼런스
+
 ### [troubleshooting](troubleshooting/) — 실제로 막혔던 것들
 
 학습 노트와 별개로, **직접 겪은 장애·삽질을 기록**한다. 다음 형식을 따른다.
@@ -200,8 +218,14 @@ Linux (커널·프로세스·권한·네트워크)
 
 ## 다음 단계
 
-| 트랙 | 다룰 내용 |
+학습 경로의 8개 트랙이 모두 채워졌다. 남은 것은 **읽은 것을 겪은 것으로 바꾸는 일**이다.
+
+| 할 것 | 내용 |
 |---|---|
-| `reliability-lab/` | SLO 운영, 백업·DR, 카오스 실험, 용량 계획, 온콜·포스트모템 |
+| [troubleshooting](troubleshooting/) | 실제로 막힌 것을 현상/원인/해결/재발 방지로 기록 — 유일하게 남은 🚧 |
+| 검증 | 각 트랙의 확인 절차를 실제 클러스터에서 실행 (bad-pod 대조, `kubectl drain`, 복구 리허설) |
+
+> **선언한 것과 실제로 동작하는 것은 다르다.** 정책은 위반 파드로, NetworkPolicy는 차단 테스트로,
+> Spot은 드레인으로, 백업은 복구로 확인한다. 확인하지 않은 것은 갖춘 것이 아니다.
 
 > 실제 적용 결과는 별도 저장소 [eks-gitops-platform](https://github.com/GWANG-MIN1/eks-gitops-platform)에서 EKS 위에 GitOps·관측성·DevSecOps로 이어진다.
