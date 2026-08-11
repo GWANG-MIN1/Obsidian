@@ -210,25 +210,60 @@ git 은 "이 파일을 지금 체크아웃하면 어떤 모습이어야 하는�
 > `text=auto` = git이 텍스트/바이너리를 판별해 텍스트만 정규화
 > `eol=lf` = 워킹트리도 LF로 통일 (팀 전체가 같은 상태가 된다)
 
-### ② 이미 CRLF인 워킹 파일을 정규화한다
-
-`.gitattributes`를 추가해도 **이미 체크아웃된 파일은 바뀌지 않는다.** 강제로 다시 적용해야 한다.
+이것만으로 **팬텀 modified 는 즉시 해소된다.** `eol=lf`가 되면 git이 워킹트리에 기대하는 값이
+LF가 되므로, LF 파일이 더 이상 "달라야 하는데 같다" 상태가 아니게 된다.
 
 ```bash
-# 반드시 커밋되지 않은 변경이 없는 상태에서
-git add --renormalize .
-git status                       # 줄바꿈만 바뀐 파일들이 잡힌다
-git commit -m "chore: .gitattributes 추가하고 줄바꿈 LF 로 정규화"
+$ git ls-files --eol infra-lab/linux-scripts/04-text-processing/README.md
+i/lf    w/crlf  attr/text=auto eol=lf   ...      # 속성이 붙었다
+
+$ git status --porcelain
+                                                 # 팬텀 modified 사라짐
 ```
 
-### ③ 검증
+### ② ⚠️ `git add --renormalize .` 는 이 상황에서 아무것도 안 한다
+
+인터넷 문서 대부분이 다음 단계로 이걸 안내한다. 실제로 실행해봤다.
+
+```bash
+$ git add --renormalize .
+$ git diff --cached --name-only | wc -l
+0                                # ← 아무것도 안 잡힌다
+```
+
+**`--renormalize`는 "워킹트리를 clean 필터에 통과시켜 인덱스를 갱신"하는 명령이다.**
+그런데 이 저장소는 **인덱스가 이미 전부 LF**(`i/lf`)였다. CRLF 워킹 파일을 clean 필터에
+통과시키면 LF가 나오고, 그건 인덱스에 이미 있는 값과 같다. 그래서 변경이 0이다.
+
+```
+--renormalize 가 효과 있는 경우:  인덱스에 CRLF 가 섞여 들어간 저장소 (i/crlf)
+이 저장소의 경우:                 인덱스는 이미 LF, 문제는 워킹트리 → 효과 없음
+```
+
+### ③ 워킹트리를 실제로 통일하려면 재체크아웃이 필요하다
+
+`.gitattributes`는 **체크아웃 시점에** 적용된다. 이미 워킹트리에 있는 파일은
+다시 체크아웃되기 전까지 CRLF로 남는다.
+
+```bash
+# 반드시 커밋되지 않은 변경이 없는 상태에서 (git status 가 비어야 한다)
+git status --porcelain           # ← 먼저 확인
+git rm --cached -r -q .          # 인덱스에서 내렸다가
+git reset --hard                 # 새 속성으로 전부 다시 체크아웃
+```
+
+> ⚠️ 트리가 깨끗할 때만 한다. 커밋 안 된 변경이 있으면 `reset --hard`가 그걸 날린다.
+> `.gitignore`된 파일(추적 안 되는 파일)은 영향받지 않는다.
+
+### ④ 검증
 
 ```bash
 $ git ls-files --eol | awk '{print $2}' | sort | uniq -c
-    192 w/lf                     # CRLF 가 사라졌는지 확인
-      4 w/none
+    195 w/lf                     # CRLF 가 사라졌다
+      4 w/none                   # 바이너리
 
-$ git status --porcelain         # 팬텀 modified 가 없어야 한다
+$ git status --porcelain
+                                 # 팬텀 modified 없음
 ```
 
 ### ④ `.gitignore` 추가
@@ -280,7 +315,10 @@ git commit -m "chore: 줄바꿈·무시 규칙 설정"
 - ⭐ **`git ls-files --eol`이 결정적 진단 명령** — `i/`(저장소) `w/`(워킹트리) `attr/`(속성)를 한 번에 보여준다
 - 경고 문구 **"LF will be replaced by CRLF"** 는 **워킹 파일이 지금 LF**라는 뜻이다 (읽는 방향을 헷갈리기 쉽다)
 - `core.autocrlf`는 **클라이언트 설정**이라 저장소 차원의 기준이 되지 못한다 → **`.gitattributes`가 답**
-- **`.gitattributes` 추가만으로는 기존 파일이 안 바뀐다** — `git add --renormalize .` 이 필요하다
+- `.gitattributes`에 `eol=lf`를 넣는 것만으로 **팬텀 modified 는 즉시 해소**된다
+- ⭐ **`git add --renormalize .` 가 항상 답은 아니다** — 인덱스가 이미 LF면 아무것도 안 잡는다
+  (이 명령은 워킹트리가 아니라 **인덱스**를 갱신하는 명령이다)
+- **`.gitattributes`는 체크아웃 시점에 적용**된다 → 워킹트리를 통일하려면 `git rm --cached -r . && git reset --hard`
 - 워킹트리 줄바꿈이 혼재하는 이유: **git이 체크아웃한 파일(CRLF) vs 도구가 직접 쓴 파일(LF)**
 - **첫 가설(stat 캐시)을 `touch`로 반증**한 게 방향을 바꿨다 — 추측을 검증하지 않았으면 엉뚱한 걸 고쳤을 것
 - 재현에 성공하니(`perl -pi -e 's/\r\n/\n/'`) 원인이 확정됐다 — **재현 못 하면 고쳤는지도 모른다**
