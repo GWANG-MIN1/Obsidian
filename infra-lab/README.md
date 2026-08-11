@@ -35,7 +35,7 @@ Linux (커널·프로세스·권한·네트워크)
 | [security-lab](security-lab/) | 01~10 | ✅ 완료 |
 | [cost-lab](cost-lab/) | 01~10 | ✅ 완료 |
 | [reliability-lab](reliability-lab/) | 01~10 | ✅ 완료 |
-| [troubleshooting](troubleshooting/) | 상시 기록 | 🚧 진행 예정 |
+| [troubleshooting](troubleshooting/) | 상시 기록 | 📝 1건 |
 
 ---
 
@@ -222,7 +222,7 @@ Linux (커널·프로세스·권한·네트워크)
 
 | 할 것 | 내용 |
 |---|---|
-| [troubleshooting](troubleshooting/) | 실제로 막힌 것을 현상/원인/해결/재발 방지로 기록 — 유일하게 남은 🚧 |
+| [troubleshooting](troubleshooting/) | 겪은 것을 계속 쌓는다 — [01](troubleshooting/01-git-crlf-phantom-modified.md) 작성 완료 |
 | 검증 | 각 트랙의 확인 절차를 실제 클러스터에서 실행 (bad-pod 대조, `kubectl drain`, 복구 리허설) |
 
 > **선언한 것과 실제로 동작하는 것은 다르다.** 정책은 위반 파드로, NetworkPolicy는 차단 테스트로,
