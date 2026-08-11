@@ -1,0 +1,23 @@
+# Obsidian UI 상태 — 창 배치·열린 탭·스크롤 위치.
+# 노트 내용이 아니라 "지금 뭘 열어놨는지"라서, 파일을 열기만 해도 diff 가 생긴다.
+# 기기마다 다른 게 정상이므로 추적하지 않는다.
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+# 플러그인 실행 캐시·상태
+.obsidian/plugins/*/data.json.bak
+
+# 검색·그래프 캐시
+.obsidian/cache
+.trash/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 에디터
+.vscode/
+.idea/
+*.swp
+*~
