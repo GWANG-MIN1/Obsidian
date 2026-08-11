@@ -4,7 +4,11 @@
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
 
-# 플러그인 실행 캐시·상태
+# 플러그인 설정 — API 키·개인키 같은 시크릿이 들어간다.
+# obsidian-local-rest-api 의 data.json 에는 apiKey 와 RSA 개인키가 평문으로 저장된다.
+# 공개 저장소에 올라가면 그대로 노출되므로 추적하지 않는다.
+#   → infra-lab/security-lab/06-secrets-management/
+.obsidian/plugins/*/data.json
 .obsidian/plugins/*/data.json.bak
 
 # 검색·그래프 캐시
