@@ -1,0 +1,23 @@
+# 저장소에는 LF 로 저장하고, 워킹트리도 LF 로 통일한다.
+#
+# core.autocrlf 는 클라이언트 설정이라 사람·기기마다 달라진다. 그 결과 워킹트리
+# 줄바꿈이 CRLF/LF 로 혼재하면서 "내용은 같은데 계속 modified 로 잡히는" 상태가
+# 생겼다. 저장소 차원의 기준을 여기서 고정한다.
+#   → infra-lab/troubleshooting/01-git-crlf-phantom-modified.md
+*               text=auto eol=lf
+
+# 바이너리 — 정규화 대상에서 제외한다 (건드리면 파일이 깨진다)
+*.png           binary
+*.jpg           binary
+*.jpeg          binary
+*.gif           binary
+*.webp          binary
+*.svg           text eol=lf
+*.pdf           binary
+*.zip           binary
+*.woff          binary
+*.woff2         binary
+*.ttf           binary
+*.otf           binary
+*.mp4           binary
+*.mp3           binary
