@@ -35,6 +35,7 @@ Linux (커널·프로세스·권한·네트워크)
 | [security-lab](security-lab/) | 01~10 | ✅ 완료 |
 | [cost-lab](cost-lab/) | 01~10 | ✅ 완료 |
 | [reliability-lab](reliability-lab/) | 01~10 | ✅ 완료 |
+| [db-lab](db-lab/) | 01~06 | 📝 작성 중 |
 | [troubleshooting](troubleshooting/) | 상시 기록 | 📝 1건 |
 
 ---

@@ -11,6 +11,12 @@
 
 ---
 
+## [타임라인](타임라인.md)
+
+커밋 56개 · 2025-11-24 ~ 2026-09-06 · 3단계 (과제 → 클라우드 확장 → 리뷰 반영)
+
+---
+
 ## 결정 — 왜 그렇게 만들었나
 
 | | 노트 |
@@ -22,6 +28,8 @@
 | 05 | [읽기 커넥션 분리](decisions/05-읽기-커넥션-분리.md) |
 | 06 | [API Key만 넣고 역할 분리는 보류](decisions/06-API-Key만-넣고-역할-분리는-보류.md) |
 | 07 | [커넥션 풀 크기를 15로](decisions/07-커넥션-풀-크기를-15로.md) |
+| 08 | [테스트를 실제 PostgreSQL로](decisions/08-테스트를-실제-PostgreSQL로.md) |
+| 09 | [오류 매핑을 제약 이름 기준으로](decisions/09-오류-매핑을-제약-이름-기준으로.md) |
 
 ## 트러블슈팅 — 무엇에 막혔나
 
@@ -34,17 +42,20 @@
 | 05 | [CI가 위반이 있어도 항상 성공](troubleshooting/05-CI가-위반이-있어도-항상-성공.md) |
 | 06 | [CI에서만 테스트 7개 실패](troubleshooting/06-CI에서만-테스트-7개-실패.md) |
 | 07 | [큰 숫자 입력이 500](troubleshooting/07-큰-숫자-입력이-500.md) |
+| 08 | [린트를 우회했다가 검증이 무력화](troubleshooting/08-린트를-우회했다가-검증이-무력화.md) |
+| 09 | [Secrets Manager 조회 실패](troubleshooting/09-Secrets-Manager-조회-실패.md) |
+| 10 | [배포 후 헬스체크가 안 떴다](troubleshooting/10-배포-후-헬스체크가-안-떴다.md) |
 
 ## 개념 노트
 
-이 프로젝트에서 나왔지만 다음에도 쓸 지식은 `infra-lab/` 에 둔다. 여기서는 링크만.
+이 프로젝트에서 나왔지만 다음에도 쓸 지식은 [`infra-lab/db-lab/`](../../infra-lab/db-lab/) 에 둔다.
 
-- [ ] 부분 유니크 인덱스
-- [ ] SERIAL vs IDENTITY
-- [ ] Alembic baseline / stamp
-- [ ] psql `ON_ERROR_STOP`
-- [ ] SQLAlchemy `Mapped[T]` 의 널 허용 추론
-- [ ] Read Replica vs Multi-AZ standby
+- [ ] [부분 유니크 인덱스](../../infra-lab/db-lab/부분-유니크-인덱스.md)
+- [ ] [SERIAL vs IDENTITY](../../infra-lab/db-lab/SERIAL-vs-IDENTITY.md)
+- [ ] [Alembic baseline 과 stamp](../../infra-lab/db-lab/Alembic-baseline-과-stamp.md)
+- [ ] [psql ON_ERROR_STOP](../../infra-lab/db-lab/psql-ON_ERROR_STOP.md)
+- [ ] [SQLAlchemy Mapped[T] 널 추론](../../infra-lab/db-lab/SQLAlchemy-Mapped-널-추론.md)
+- [ ] [Read Replica vs Multi-AZ](../../infra-lab/db-lab/Read-Replica-vs-Multi-AZ.md)
 
 ---
 
