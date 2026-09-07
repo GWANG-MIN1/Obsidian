@@ -3,8 +3,9 @@
 헬스장 운영 데이터를 PostgreSQL로 설계하고 FastAPI·Docker·AWS로 배포한 백엔드 프로젝트.
 
 - 저장소: https://github.com/GWANG-MIN1/gym-management-db
-- 기간:
-- 한 줄 요약:
+- 기간: 2025-11-24 ~ 2026-09-06 (커밋 56개 · 실제 작업일 6일 · 3단계)
+- 한 줄 요약: **DB 스키마 설계에서 시작해 배포·모니터링까지 이어 붙이고,
+  코드 리뷰를 받아 검증 체계를 세운 백엔드 프로젝트**
 
 > 저장소 README가 "이 프로젝트가 무엇인가"라면, 이 노트는 **"내가 무엇을 겪었나"** 다.
 > 같은 내용을 옮겨 적지 않는다.
@@ -50,17 +51,35 @@
 
 이 프로젝트에서 나왔지만 다음에도 쓸 지식은 [`infra-lab/db-lab/`](../../infra-lab/db-lab/) 에 둔다.
 
-- [ ] [부분 유니크 인덱스](../../infra-lab/db-lab/부분-유니크-인덱스.md)
-- [ ] [SERIAL vs IDENTITY](../../infra-lab/db-lab/SERIAL-vs-IDENTITY.md)
-- [ ] [Alembic baseline 과 stamp](../../infra-lab/db-lab/Alembic-baseline-과-stamp.md)
-- [ ] [psql ON_ERROR_STOP](../../infra-lab/db-lab/psql-ON_ERROR_STOP.md)
-- [ ] [SQLAlchemy Mapped[T] 널 추론](../../infra-lab/db-lab/SQLAlchemy-Mapped-널-추론.md)
-- [ ] [Read Replica vs Multi-AZ](../../infra-lab/db-lab/Read-Replica-vs-Multi-AZ.md)
+- [x] [부분 유니크 인덱스](../../infra-lab/db-lab/부분-유니크-인덱스.md)
+- [x] [SERIAL vs IDENTITY](../../infra-lab/db-lab/SERIAL-vs-IDENTITY.md)
+- [x] [Alembic baseline 과 stamp](../../infra-lab/db-lab/Alembic-baseline-과-stamp.md)
+- [x] [psql ON_ERROR_STOP](../../infra-lab/db-lab/psql-ON_ERROR_STOP.md)
+- [x] [SQLAlchemy Mapped[T] 널 추론](../../infra-lab/db-lab/SQLAlchemy-Mapped-널-추론.md)
+- [x] [Read Replica vs Multi-AZ](../../infra-lab/db-lab/Read-Replica-vs-Multi-AZ.md)
 
 ---
 
 ## 아직 안 한 것과 이유
 
-- 역할(관리자/트레이너/회원) 기반 권한 분리 —
-- 무중단 배포와 롤백 —
-- 개선 후 부하 테스트 재측정 —
+**역할(관리자/트레이너/회원) 기반 권한 분리**
+사용자 테이블·비밀번호 해시·토큰 발급과 갱신까지 따라온다. 이 프로젝트의 주제(DB 설계와 운영)에서
+비중이 뒤집힌다고 판단해, 쓰기 잠금(API Key) 하나만 넣고 **없는 것은 없다고 README에 적었다.**
+→ [결정 06](decisions/06-API-Key만-넣고-역할-분리는-보류.md)
+
+**무중단 배포와 롤백**
+CD가 기존 컨테이너를 먼저 내리고 새로 띄우는 구조라 배포 중 짧은 중단이 있고, 실패 시 자동 복구가 없다.
+AWS 인프라를 내린 상태라 지금 손대도 검증할 방법이 없다.
+
+**개선 후 부하 테스트 재측정**
+README의 p95 수치는 전부 **개선 전** 값이다. 페이지네이션·인덱스·읽기 분리를 넣었지만
+같은 조건(EC2 t3.micro + RDS db.t3.micro)을 다시 만들지 않으면 비교가 의미 없다.
+→ [트러블 03](troubleshooting/03-GET-members-p95-2초.md)
+
+**Alembic downgrade**
+`0002`는 테이블 추가와 SERIAL → IDENTITY 전환을 포함해 자동 복구가 안전하지 않다.
+어설픈 downgrade보다 "스냅샷에서 복구"가 정직하다고 보고 `NotImplementedError`로 막았다.
+
+**Replica 헬스체크**
+`/health`는 Primary만 확인한다. Replica가 끊겨도 200이고 조회만 실패한다.
+실제로 Replica를 운영할 때 보완할 것.
