@@ -36,6 +36,7 @@ Linux (커널·프로세스·권한·네트워크)
 | [cost-lab](cost-lab/) | 01~10 | ✅ 완료 |
 | [reliability-lab](reliability-lab/) | 01~10 | ✅ 완료 |
 | [db-lab](db-lab/) | 01~06 | 📝 작성 중 |
+| [aws-lab](aws-lab/) | 01~09 | ✅ 완료 |
 | [troubleshooting](troubleshooting/) | 상시 기록 | 📝 1건 |
 
 ---
@@ -193,6 +194,16 @@ Linux (커널·프로세스·권한·네트워크)
 
 📎 [commands.md](reliability-lab/commands.md) — SLO PromQL·장애 진단·Velero·부하 테스트 레퍼런스
 
+### 개념 노트 트랙 — 프로젝트에서 나온 것들
+
+`01~10` 커리큘럼이 아니라, **실제 프로젝트에서 만나 따로 떼어 둔 개념**을 평면으로 모은다.
+각 노트 끝에 "처음 만난 곳"으로 프로젝트의 결정·트러블슈팅 노트를 링크한다.
+
+| 트랙 | 출처 프로젝트 | 다루는 것 |
+|---|---|---|
+| [db-lab](db-lab/) | [gym-management-db](../projects/gym-management-db/README.md) | 부분 유니크 인덱스, IDENTITY, Alembic, 읽기 분산 |
+| [aws-lab](aws-lab/) | [aws-serverless-agent](../projects/aws-serverless-agent/README.md) | Function URL, async invoke, DynamoDB 키 설계, Agent Loop, SigV4 WSS, Lambda@Edge, X-Ray, esbuild, OIDC 배포 |
+
 ### [troubleshooting](troubleshooting/) — 실제로 막혔던 것들
 
 학습 노트와 별개로, **직접 겪은 장애·삽질을 기록**한다. 다음 형식을 따른다.
@@ -219,7 +230,8 @@ Linux (커널·프로세스·권한·네트워크)
 
 ## 다음 단계
 
-학습 경로의 8개 트랙이 모두 채워졌다. 남은 것은 **읽은 것을 겪은 것으로 바꾸는 일**이다.
+학습 경로의 커리큘럼 9개 트랙이 모두 채워졌고, 그 뒤로 **겪은 것을 되돌려 담는 트랙**이 둘 붙었다
+([db-lab](db-lab/) · [aws-lab](aws-lab/)). 남은 것은 **읽은 것을 겪은 것으로 바꾸는 일**이다.
 
 | 할 것 | 내용 |
 |---|---|
