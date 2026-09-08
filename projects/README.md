@@ -56,14 +56,3 @@ aws의 [트러블 12](aws-serverless-agent/troubleshooting/12-재배포하니-�
 ([트러블 08](gym-management-db/troubleshooting/08-린트를-우회했다가-검증이-무력화.md)).
 aws는 검증을 매일 했지만 **그 검증을 자동화하지 않았다.**
 둘 다 "검증이 있다"와 "검증이 작동한다" 사이의 간극이다.
-
----
-
-## 다음에 할 것
-
-| | |
-|---|---|
-| aws-serverless-agent | 번들 로드 테스트 하나라도 CI에 넣기 → [트러블 12](aws-serverless-agent/troubleshooting/12-재배포하니-전-요청이-500.md) |
-| aws-serverless-agent | Phase 3~4 실비용 집계 (`awsCost` skill을 만들어 놓고 안 썼다) |
-| gym-management-db | 개선 후 부하 테스트 재측정 (지금 수치는 전부 개선 전) |
-| 공통 | 프로젝트가 셋이 되면 이 README의 비교표를 트랙별로 나눈다 |
