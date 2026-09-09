@@ -96,5 +96,10 @@ README의 p95 수치는 전부 **개선 전** 값이다. 페이지네이션·인
 
 여기 [트러블 09](troubleshooting/09-Secrets-Manager-조회-실패.md) 가 남긴
 *"사람이 콘솔에서 값을 복사해 붙여 넣는 단계는 재현되지 않는다"* 와 같은 결론에
-**다른 경로로** 도달한 사례다. → [두 프로젝트 비교](../README.md#두-프로젝트가-서로를-비춘다)
+**다른 경로로** 도달한 사례다. → [세 프로젝트 비교](../README.md#세-프로젝트가-서로를-비춘다)
+
+[serverless-uptime-monitor](../serverless-uptime-monitor/README.md) 는 여기서 한 칸 더 간다.
+이쪽처럼 자동 테스트(78개)와 CI 게이트를 갖춰 놓고도 **프로덕션이 조용히 멈췄다** —
+테스트 픽스처가 실제 DynamoDB 가 돌려주는 타입을 한 번도 안 지나갔기 때문이다.
+→ [트러블 01](../serverless-uptime-monitor/troubleshooting/01-헬스체크가-조용히-멈췄다.md)
 

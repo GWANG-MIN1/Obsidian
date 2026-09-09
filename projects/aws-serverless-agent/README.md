@@ -115,6 +115,11 @@ GitHub Actions OIDC [`cicd-lab/03-github-actions-advanced/`](../../infra-lab/cic
 gym-management-db는 반대로 리뷰를 받고 테스트 56개를 넣어서 이 부분이 채워졌다 —
 같은 사람이 만든 두 프로젝트인데 검증 체계가 정반대다.
 
+그리고 [serverless-uptime-monitor](../serverless-uptime-monitor/README.md) 가 그 칸을 채우고도
+같은 종류로 무너졌다 — 테스트 78개가 전부 통과하는 상태에서 프로덕션 헬스체크가 조용히 멈췄다.
+자동 테스트는 **내가 상상한 입력**만 검증한다는 것이 세 프로젝트를 걸쳐 나온 결론이다.
+→ [세 프로젝트 비교](../README.md#세-프로젝트가-서로를-비춘다)
+
 **`node:vm` 은 진짜 격리가 아니다**
 
 `while(true){}` 같은 동기 무한루프는 `Promise.race` 타임아웃으로도 못 막는다. 이벤트 루프 자체가 멈춘다.
