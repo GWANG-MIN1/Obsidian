@@ -223,7 +223,7 @@ kubectl get policyreport -A | grep bad-pod
 ```
 
 ```
-sample-app  : PASS 4 / FAIL 0     ← 통과하도록 만든 워크로드
+sample-app  : PASS 5 / FAIL 0     ← 통과하도록 만든 워크로드 (정책 4개 = 규칙 5개)
 bad-pod     : PASS 1 / FAIL 4     ← 일부러 위반시킨 파드
 ```
 
@@ -357,7 +357,7 @@ results:
 - 보안 정책에 안정성 규칙(`require-resources`)이 섞여도 된다 — **같은 게이트가 효율적**
 - 정책은 **조직의 판단을 코드로** 담는다 (CPU limit 미요구 같은)
 - ⭐ **"배포했다"와 "실제로 판정한다"는 다르다** — 위반 파드를 일부러 만들어 FAIL을 확인
-- 대조 실험(PASS 4 vs FAIL 4)이 Audit 리포트를 신뢰할 근거가 된다
+- 대조 실험(PASS 5 vs FAIL 4)이 Audit 리포트를 신뢰할 근거가 된다
 - **mutate는 매니페스트와 실물이 달라져** 디버깅을 어렵게 한다 — validate 쪽이 교육적
 - `generate`로 네임스페이스 생성 시 default-deny NetworkPolicy를 자동 부착할 수 있다
 - `kyverno apply`·`kyverno test`로 **클러스터 없이 CI에서 정책을 검증**한다

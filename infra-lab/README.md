@@ -204,6 +204,8 @@ Linux (커널·프로세스·권한·네트워크)
 | [db-lab](db-lab/) | [gym-management-db](../projects/gym-management-db/README.md) | 부분 유니크 인덱스, IDENTITY, Alembic, 읽기 분산 |
 | [aws-lab](aws-lab/) | [aws-serverless-agent](../projects/aws-serverless-agent/README.md) | Function URL, async invoke, DynamoDB 키 설계, Agent Loop, SigV4 WSS, Lambda@Edge, X-Ray, esbuild, OIDC 배포 |
 
+[eks-gitops-platform](../projects/eks-gitops-platform/README.md) 은 따로 트랙을 두지 않았다. 거기서 겪은 것은 커리큘럼 트랙의 예제와 `🔧` 절로 들어가 있다 — terraform-lab/09 · cicd-lab/05·06 · observability-lab/06·08 · security-lab/04·06·07·09 · cost-lab/07.
+
 ### [troubleshooting](troubleshooting/) — 실제로 막혔던 것들
 
 학습 노트와 별개로, **직접 겪은 장애·삽질을 기록**한다. 다음 형식을 따른다.
@@ -241,4 +243,4 @@ Linux (커널·프로세스·권한·네트워크)
 > **선언한 것과 실제로 동작하는 것은 다르다.** 정책은 위반 파드로, NetworkPolicy는 차단 테스트로,
 > Spot은 드레인으로, 백업은 복구로 확인한다. 확인하지 않은 것은 갖춘 것이 아니다.
 
-> 실제 적용 결과는 별도 저장소 [eks-gitops-platform](https://github.com/GWANG-MIN1/eks-gitops-platform)에서 EKS 위에 GitOps·관측성·DevSecOps로 이어진다.
+> 실제 적용 결과는 별도 저장소 [eks-gitops-platform](https://github.com/GWANG-MIN1/eks-gitops-platform)에서 EKS 위에 GitOps·관측성·DevSecOps로 이어진다. 겪은 것과 버린 선택지는 [projects/eks-gitops-platform](../projects/eks-gitops-platform/README.md)에 정리했다.

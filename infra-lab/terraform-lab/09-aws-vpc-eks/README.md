@@ -358,7 +358,7 @@ Terraform이 만드는 것과 GitOps가 만드는 것의 경계를 정하는 게
 | RDS, S3, SSM 파라미터 | ExternalSecret, ConfigMap |
 
 > 경계가 흐려지면 "누가 이걸 관리하지"가 애매해진다. **AWS API로 만드는 건 Terraform, Kubernetes API로 만드는 건 GitOps**를 원칙으로 잡는다.  
-> 실제 적용 사례는 [eks-gitops-platform](https://github.com/GWANG-MIN1/eks-gitops-platform) 저장소에 Phase 1~4로 정리되어 있다.
+> 실제 적용 사례는 [eks-gitops-platform](https://github.com/GWANG-MIN1/eks-gitops-platform) 저장소에 Phase 1~4로 정리되어 있다. 겪은 것과 버린 선택지는 [projects/eks-gitops-platform](../../../projects/eks-gitops-platform/README.md)에 있다.
 
 ---
 
