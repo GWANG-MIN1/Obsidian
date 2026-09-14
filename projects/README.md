@@ -25,15 +25,16 @@ troubleshooting/   무엇에 막혔고 왜 그랬나 (반증된 가설 포함)
 | 02 | [aws-serverless-agent](aws-serverless-agent/README.md) | AWS 서버리스 위의 AI 에이전트를 부품부터 다시 쌓은 학습 프로젝트 | 2026-05-23 ~ 2026-06-25 |
 | 03 | [serverless-uptime-monitor](serverless-uptime-monitor/README.md) | EC2 없이 서버리스로 만든 업타임 모니터링 서비스 | 2026-05-14 ~ 2026-08-01 |
 | 04 | [riskdetector](riskdetector/README.md) | 계약서 독소조항을 찾아 주는 AI 서비스 — **캡스톤 팀 프로젝트 · 장려상** | 2026-03-23 ~ 2026-06-07 |
+| 05 | [eks-gitops-platform](eks-gitops-platform/README.md) | Terraform · ArgoCD 로 EKS 를 올리고 관측성 · DevSecOps 까지 붙인 플랫폼 | 2026-06-24 ~ 2026-07-23 |
 
-|  | gym-management-db | aws-serverless-agent | serverless-uptime-monitor | riskdetector |
-|---|---|---|---|---|
-| 저장소 | [GWANG-MIN1/gym-management-db](https://github.com/GWANG-MIN1/gym-management-db) | [GWANG-MIN1/aws-serverless-agent](https://github.com/GWANG-MIN1/aws-serverless-agent) | [GWANG-MIN1/serverless-uptime-monitor](https://github.com/GWANG-MIN1/serverless-uptime-monitor) | [LilChaewon/RiskDetector](https://github.com/LilChaewon/RiskDetector) |
-| 형태 | 혼자 | 혼자 | 혼자 | **팀 5명 · 내 역할 백엔드** |
-| 커밋 · 작업일 | 56개 · 6일 | 151개 · 23일 | 53개 · 11일 | 361개(내 77개) · 23일 |
-| 결정 노트 | [9개](gym-management-db/decisions/README.md) | [13개](aws-serverless-agent/decisions/README.md) | [11개](serverless-uptime-monitor/decisions/README.md) | [12개](riskdetector/decisions/README.md) |
-| 트러블슈팅 | [10개](gym-management-db/troubleshooting/README.md) | [13개](aws-serverless-agent/troubleshooting/README.md) | [6개](serverless-uptime-monitor/troubleshooting/README.md) | [9개](riskdetector/troubleshooting/README.md) |
-| 개념 노트 | [`infra-lab/db-lab/`](../infra-lab/db-lab/README.md) | [`infra-lab/aws-lab/`](../infra-lab/aws-lab/README.md) | [`infra-lab/aws-lab/`](../infra-lab/aws-lab/README.md) (미작성) | [`infra-lab/aws-lab/`](../infra-lab/aws-lab/README.md) (미작성) |
+|  | gym-management-db | aws-serverless-agent | serverless-uptime-monitor | riskdetector | eks-gitops-platform |
+|---|---|---|---|---|---|
+| 저장소 | [GWANG-MIN1/gym-management-db](https://github.com/GWANG-MIN1/gym-management-db) | [GWANG-MIN1/aws-serverless-agent](https://github.com/GWANG-MIN1/aws-serverless-agent) | [GWANG-MIN1/serverless-uptime-monitor](https://github.com/GWANG-MIN1/serverless-uptime-monitor) | [LilChaewon/RiskDetector](https://github.com/LilChaewon/RiskDetector) | [GWANG-MIN1/eks-gitops-platform](https://github.com/GWANG-MIN1/eks-gitops-platform) |
+| 형태 | 혼자 | 혼자 | 혼자 | **팀 5명 · 내 역할 백엔드** | 혼자 |
+| 커밋 · 작업일 | 56개 · 6일 | 151개 · 23일 | 53개 · 11일 | 361개(내 77개) · 23일 | 51개 · 11일 |
+| 결정 노트 | [9개](gym-management-db/decisions/README.md) | [13개](aws-serverless-agent/decisions/README.md) | [11개](serverless-uptime-monitor/decisions/README.md) | [12개](riskdetector/decisions/README.md) | [10개](eks-gitops-platform/decisions/README.md) |
+| 트러블슈팅 | [10개](gym-management-db/troubleshooting/README.md) | [13개](aws-serverless-agent/troubleshooting/README.md) | [6개](serverless-uptime-monitor/troubleshooting/README.md) | [9개](riskdetector/troubleshooting/README.md) | [5개](eks-gitops-platform/troubleshooting/README.md) |
+| 개념 노트 | [`infra-lab/db-lab/`](../infra-lab/db-lab/README.md) | [`infra-lab/aws-lab/`](../infra-lab/aws-lab/README.md) | [`infra-lab/aws-lab/`](../infra-lab/aws-lab/README.md) (미작성) | [`infra-lab/aws-lab/`](../infra-lab/aws-lab/README.md) (미작성) | [`infra-lab/`](../infra-lab/README.md) 커리큘럼 트랙에 흡수 |
 
 ---
 
@@ -152,3 +153,57 @@ Render 에 웹 서비스 2개 + 관리형 PostgreSQL 을 상시로 띄우는 구
 
 기술 선택은 *"이걸로 만들 수 있나"* 만이 아니라 *"이걸 유지할 수 있나"* 로도 갈린다.
 후자를 계산하는 것도 백엔드 담당의 일이었고, 그때는 그 생각을 못 했다.
+
+---
+
+## 다섯 번째는 플랫폼이다 — 검증 완료가 계속 참이지는 않다
+
+[eks-gitops-platform](eks-gitops-platform/README.md) 은 앱이 아니라 **앱이 올라갈 자리**다.
+Terraform 으로 EKS 를 올리고, 클러스터 안은 ArgoCD 로, 그 위에 관측성 · DevSecOps 를 붙였다.
+다섯 개 중 **검증을 가장 형식적으로 남긴** 프로젝트다 — 로드맵이 "코드 완료"와 "검증 완료"를 따로 체크했고,
+Phase 마다 라이브 검증 기록과 스크린샷을, 막힌 것마다 트러블슈팅 문서를 저장소에 남겼다.
+그런데도 앞의 네 프로젝트에서 나온 결론 셋이 **다른 모양으로** 다시 나왔다.
+
+### 1) 운영 신호 층의 부품은 다 있었는데, 연결이 없었다
+
+[세 프로젝트 비교](#세-프로젝트가-서로를-비춘다)에서 실제로 장애를 잡은 것은 배포 후에 작동하는 **운영 신호**였다.
+eks-gitops-platform 은 그 층의 부품을 전부 갖췄다 — 알림 규칙 3개, ArgoCD 메트릭, 차트가 기본으로 넣는
+**Watchdog**(알림 경로가 살아 있음을 증명하려고 항상 울리는 알림).
+그런데 Alertmanager 의 receiver 가 차트 기본값 `'null'` 그대로라 **어떤 알림도 어디에도 도착하지 않는다.**
+uptime-monitor 가 [요약 알림](serverless-uptime-monitor/decisions/05-요약-알림을-기존-알림-큐에-얹기.md)으로 손수 만든 dead man's switch 가
+차트 안에 이미 있었는데 연결하지 않았다. → [결정 06](eks-gitops-platform/decisions/06-컨트롤플레인-수집을-끄고-알림은-3개만.md)
+
+### 2) 전부 코드로 만들어도 코드 밖의 시간은 흐른다
+
+aws-serverless-agent 의 [트러블 12](aws-serverless-agent/troubleshooting/12-재배포하니-전-요청이-500.md) 가 남긴 결론은
+*"손으로 한 검증은 환경이 바뀌면 재현되지 않는다"* 였다. 이 프로젝트는 반대로 **전부 코드로** 만들었다 —
+Terraform · GitOps · CI. 그런데도 코드가 기대는 바깥이 움직였다.
+
+| 코드 밖에서 바뀐 것 | 결과 |
+|---|---|
+| EKS 1.30 연장 지원 종료 — **2026-07-23, 마지막 검증일** | 기본값으로는 새 클러스터를 만들 수 없다 → [결정 03](eks-gitops-platform/decisions/03-전부-버전을-고정했다.md) |
+| GitHub 의 60일 무활동 규칙 | 주간 CVE 재스캔이 09-21 전후 꺼진다 → [결정 08](eks-gitops-platform/decisions/08-Trivy는-fixable-CRITICAL만-막는다.md) |
+| 검증 당시 1.30 이 이미 연장 지원 구간 | 컨트롤플레인 요금이 표준의 6배였다 |
+
+검증 기록 4개는 전부 사실이다. 다만 **그 사실에는 날짜가 붙어 있었다.**
+
+### 3) 비용을 설계의 첫 줄에 올리고도 재지 않았다
+
+[riskdetector](riskdetector/troubleshooting/01-Spring이-전시-5일-전에-교체됐다.md) 가 비용으로 무너졌고 uptime-monitor 도 청구서를 안 봤다.
+이 프로젝트는 다섯 중 비용을 **설계 전제**로 가장 강하게 걸었다(매일 destroy · SPOT · 단일 NAT) — 그런데도 청구 금액 기록이 없고,
+버전 선택 하나가 컨트롤플레인을 6배로 만든 것을 모른 채 지나갔다.
+**비용을 의식하는 것과 비용을 재는 것은 다른 층이다.** → [결정 02](eks-gitops-platform/decisions/02-매일-destroy를-전제로-설계했다.md)
+
+### 시간 순서 — 프로젝트가 먼저였고, 커리큘럼이 그 뒤에 쓰였다
+
+```
+2026-07-07  infra-lab/k8s-manifests 마무리 (로컬 클러스터 · Helm · GitOps 입문)
+2026-07-12  eks-gitops-platform 시작 ── 07-23 네 Phase 라이브 검증 완료
+2026-08-04  infra-lab 커리큘럼 트랙 6개 (terraform · observability · cicd · security · cost · reliability) ── 08-10
+2026-09     projects 노트
+```
+
+infra-lab 의 뒤쪽 트랙 여섯 개는 이 저장소가 끝난 **뒤에** 쓰였고, 이 저장소의 매니페스트를 예제로 쓴다.
+riskdetector 에선 팀 프로젝트가 공백을 알려 주고 솔로 프로젝트가 메웠다면, 여기선 **프로젝트가 먼저 겪고 커리큘럼이 그것을 개념으로 떼어 냈다.**
+그 과정에서 숫자 하나가 틀어졌다 — 검증 스크린샷은 PASS 5 인데
+[security-lab/04](../infra-lab/security-lab/04-kyverno/README.md) 에는 PASS 4 로 옮겨져 있었다 (2026-09-14 에 고침).
