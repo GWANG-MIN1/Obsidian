@@ -1,3 +1,11 @@
+---
+tags:
+  - interview
+  - network
+  - aws
+  - container
+---
+
 # 07 DNS
 
 DNS는 **`www.example.com` 같은 이름을 `93.184.215.14` 같은 IP로 바꿔주는 인터넷의 전화번호부**다.

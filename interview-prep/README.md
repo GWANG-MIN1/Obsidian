@@ -1,3 +1,8 @@
+---
+tags:
+  - interview
+---
+
 # interview-prep
 
 MSP(메가존클라우드·베스핀글로벌·kt cloud 등) 기술면접에서 실제로 나오는 **리눅스 + 네트워크 기본기**를 정리한다.

@@ -1,3 +1,11 @@
+---
+tags:
+  - interview
+  - network
+  - aws
+  - container
+---
+
 # 05 TCP 핸드셰이크
 
 TCP는 **"받았는지 확인하면서 순서대로 보내는" 통신 규칙**이다. 그 확인 절차의 시작이 3-way 핸드셰이크, 끝이 4-way 핸드셰이크다.
