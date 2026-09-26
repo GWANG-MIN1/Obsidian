@@ -5,7 +5,7 @@ tags:
 
 # interview-prep
 
-MSP(메가존클라우드·베스핀글로벌·kt cloud 등) 기술면접에서 실제로 나오는 **리눅스 + 네트워크 기본기**를 정리한다.
+MSP(메가존클라우드·베스핀글로벌·kt cloud 등) 기술면접에서 실제로 나오는 **리눅스 + 네트워크 + CS 기본기**를 정리한다.
 
 새로 배우는 게 아니라 **"말로 설명할 수 있는 상태"로 만드는 작업**이다.
 명령어 레퍼런스는 [infra-lab/linux-scripts](../infra-lab/linux-scripts/)에 이미 있으니, 여기서는 **왜 그렇게 동작하는지**와 **면접에서 어떻게 말할지**에 집중한다.
@@ -23,6 +23,12 @@ MSP(메가존클라우드·베스핀글로벌·kt cloud 등) 기술면접에서 
 | [05](05-tcp-handshake.md)      | TCP 핸드셰이크       | 3-way, 4-way, TIME_WAIT, refused vs timeout      |
 | [06](06-subnet-routing-nat.md) | 서브넷 · 라우팅 · NAT | CIDR 계산, 게이트웨이, SNAT/DNAT, IGW vs NAT GW         |
 | [07](07-dns.md)                | DNS             | 재귀 조회, 레코드 타입, TTL, CNAME vs Alias               |
+| [08](08-http-https.md)             | HTTP · HTTPS      | 무상태, 멱등성, 상태 코드(502/503/504), TLS 핸드셰이크, 인증서 체인 |
+| [09](09-osi-loadbalancer.md)       | OSI 7계층 · 로드밸런서 | L2/L3/L4/L7, 캡슐화, NLB vs ALB, 헬스체크, 스티키 세션     |
+| [10](10-process-thread.md)         | 프로세스 vs 스레드     | 메모리 공유, 컨텍스트 스위칭, 경쟁 상태, 뮤텍스·세마포어, 데드락   |
+| [11](11-memory.md)                 | 메모리              | 가상 메모리, 페이지 폴트, free/available, 스왑, OOM Killer |
+| [12](12-database.md)               | 데이터베이스          | B-Tree 인덱스, ACID, 격리 수준, Multi-AZ vs Read Replica |
+| [13](13-virtualization-container.md) | 가상화 · 컨테이너     | 하이퍼바이저, VM vs 컨테이너, namespace, cgroup, 레이어     |
 
 ---
 
@@ -46,12 +52,13 @@ MSP(메가존클라우드·베스핀글로벌·kt cloud 등) 기술면접에서 
 2. **라우팅**: 목적지 IP가 내 서브넷 밖이니까 기본 게이트웨이(공유기)로 보낸다 → [06](06-subnet-routing-nat.md)
 3. **NAT**: 공유기가 내 사설 IP를 공인 IP로 바꿔서 인터넷으로 내보낸다 → [06](06-subnet-routing-nat.md)
 4. **TCP**: 서버의 443 포트와 3-way 핸드셰이크로 연결을 맺는다 → [05](05-tcp-handshake.md)
-5. **TLS**: HTTPS니까 인증서 확인하고 암호화 키를 정한다
-6. **HTTP**: 요청을 보내고 응답(HTML)을 받는다
-7. **서버 쪽**: systemd가 띄워 둔 nginx 같은 웹서버 **프로세스**가 요청을 받아 처리한다 → [04](04-systemd.md), [01](01-process-signal.md)
+5. **TLS**: HTTPS니까 인증서 확인하고 암호화 키를 정한다 → [08](08-http-https.md)
+6. **로드밸런서**: ALB가 TLS를 풀고, 경로를 보고(L7) 뒤의 서버 중 하나로 보낸다 → [09](09-osi-loadbalancer.md)
+7. **HTTP**: 요청을 보내고 응답(HTML)을 받는다 → [08](08-http-https.md)
+8. **서버 쪽**: systemd가 띄워 둔(또는 컨테이너로 뜬) nginx 같은 웹서버 **프로세스**가 스레드·이벤트 루프로 요청을 처리하고, 필요하면 **DB**에 조회한다 → [04](04-systemd.md), [01](01-process-signal.md), [10](10-process-thread.md), [13](13-virtualization-container.md), [12](12-database.md)
 
 > 이 질문은 "어디까지 깊게 들어가는지"를 보는 질문이다. 먼저 위 흐름을 1분 안에 쭉 말하고,
-> 면접관이 파고드는 단계(보통 DNS나 TCP)에서 자세히 들어가면 된다.
+> 면접관이 파고드는 단계(보통 DNS, TCP, TLS)에서 자세히 들어가면 된다.
 
 ---
 
@@ -59,4 +66,6 @@ MSP(메가존클라우드·베스핀글로벌·kt cloud 등) 기술면접에서 
 
 - [infra-lab/linux-scripts](../infra-lab/linux-scripts/) — 리눅스 명령어 실습 정리
 - [infra-lab/linux-scripts/commands.md](../infra-lab/linux-scripts/commands.md) — 명령어 레퍼런스
+- [infra-lab/docker-labs](../infra-lab/docker-labs/README.md) — 컨테이너 실습
+- [infra-lab/db-lab](../infra-lab/db-lab/README.md) — DB 실습 정리
 - [AWS Cloud Practitioner Essentials/Module 5](../AWS%20Cloud%20Practitioner%20Essentials/Module%205/) — VPC 네트워킹
